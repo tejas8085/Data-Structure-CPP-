@@ -3,6 +3,7 @@
 using namespace std;
 
 int main(){
+    
     //1 st way 
     // int array[5] = {34, 45, 67, 89, 32};
     

@@ -18,7 +18,7 @@ int main()
         for (int j = 0; j < n3; j++)
         {
             cin >> m2[i][j];
-        }
+        } 
     }
     for (int i = 0; i < n1; i++)
     {
@@ -31,7 +31,7 @@ int main()
     {
         for (int j = 0; j < n3; j++)
         {
-            for(int k=0; k<n2;k++){
+          for(int k=0; k<n2;k++){
                 ans[i][j] += m1[i][k]*m2[k][j];
             }
         }
@@ -40,7 +40,7 @@ int main()
    cout<<"Multiplication of matix is : "<<endl;
    for (int i = 0; i < n1; i++)
     {
-        for (int j = 0; j < n3; j++)
+        for (int j = 0; j  < n3; j++)
         {
             cout<<ans[i][j]<<" ";
         }

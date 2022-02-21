@@ -1,41 +1,49 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main()
-{
-  int n;
-  cout<<"Enter the size of array"<<endl;
-  cin>>n;
+class node{
+  public:
+  int data;
+  node* next;
+  node(int val){
+    data = val;
+    next = NULL;
 
-  int arr[n];
-  for (int i = 0; i < n; i++)
-  {
-    cin>>arr[i];
   }
-  int counter = 1;
-  while (counter<n)
-  {
-    for (int i = 0; i < n-counter; i++)
-    {
-      /* code */
-    
-    
-    if (arr[i]>arr[i+1])
-    {
-     int temp = arr[i];
-     arr[i] = arr[i+1];
-     arr[i+1] = temp;
-    }
-    }
-    counter++;
+};
+
+void Inssert(node* &head, int val){
+  node* n= new node(val);
+
+  if(head == NULL){
+    head= n;
+    return;
   }
-  
-cout<<"sorted array"<<endl;
-for (int i = 0; i < n; i++)
-{
-  cout<<arr[i]<<" ";
+  node* temp = head;
+  while (temp->next != NULL)
+  {
+    temp = temp->next;
+  }
+  temp->next=n;
 }
 
-
+void Display(node* head){
+  node* temp = head;
+  while (temp != NULL)
+  {
+    cout<<temp->data<<" ";
+    temp = temp->next;
+  }
+  
+}
+int main()
+{
+  node * head = NULL;
+  Inssert(head,1);
+  Inssert(head,2);
+  Inssert(head,3);
+  Inssert(head,4);
+  Display(head);
+  
   return 0;
 }
