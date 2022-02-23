@@ -44,49 +44,52 @@ void Preorder(node *root)
     {
         while (curr != NULL)
         {
-            cout<<curr->data<<" ";
+            cout << curr->data << " ";
             if (curr->right)
             {
                 s.push(curr->right);
             }
             curr = curr->left;
         }
-        if (s.empty()==false)
+        if (s.empty() == false)
         {
             curr = s.top();
             s.pop();
         }
-        
-        
     }
 }
 void Postorder(node *root)
 {
-    stack<node *> s;
-    node *curr = root;
-
-    while (curr != NULL || s.empty() == false)
+    if (root == NULL)
     {
-        while (curr != NULL)
-        {
-            
-            if (curr->right)
-            {
-                s.push(curr->right);
-            }
-            curr = curr->left;
-            cout<<curr->data<<" ";
-        }
-        if (s.empty()==false)
-        {
-            curr = s.top();
-            s.pop();
-        }
-        
-        
+        return;
     }
-}
+    stack<node *> s1, s2;
+    node *temp = root;
+    s1.push(temp);
 
+    while (!s1.empty())
+    {
+        temp = s1.top();
+        s1.pop();
+        s2.push(temp);
+        if (temp->left != NULL)
+        {
+            s1.push(temp->left);
+        }
+        if (temp->right != NULL)
+        {
+            s1.push(temp->right);
+        }
+    }
+
+    while (!s2.empty())
+    {
+        cout << s2.top()->data << " ";
+        s2.pop();
+    }
+    cout << endl;
+}
 
 int main()
 {
@@ -114,9 +117,9 @@ int main()
     root->left->right = new node(lr);
     root->right->left = new node(rl);
     root->right->right = new node(rr);
-    cout<<"\nPreorder is :- ";
+    cout << "\nPreorder is :- ";
     Preorder(root);
-    cout <<"\nInorder is :- ";
+    cout << "\nInorder is :- ";
     Inorder(root);
     cout << "\nPostorder is :- ";
     Postorder(root);
