@@ -7,9 +7,9 @@ public:
     int data;
     node *left;
     node *right;
-    node(int val)
+    node(int x)
     {
-        data = val;
+        data = x;
         left = NULL;
         right = NULL;
     }

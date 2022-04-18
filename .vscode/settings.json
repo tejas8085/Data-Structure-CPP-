@@ -49,6 +49,9 @@
         "chrono": "cpp",
         "condition_variable": "cpp",
         "mutex": "cpp",
-        "shared_mutex": "cpp"
+        "shared_mutex": "cpp",
+        "future": "cpp",
+        "regex": "cpp",
+        "barrier": "cpp"
     }
 }
